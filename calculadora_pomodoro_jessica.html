@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .corpo {
+            text-align: center;
+            justify-content: space-around;
+            background-color: rgb(206, 64, 64);
+            color: white;
+            font-size: 20px;
+        }
+
+        .div {
+            text-align: center;
+            align-items: center;
+            justify-content: space-around;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body class="corpo">
+
+    <center>
+        <h2>pomodoro</h2>
+        Insira o tatal de tomates transportados por KG: <br> <input id="input_quantidade"> <br>
+        Insira o valor da unidade de cada <br> tomate vendido por KG <br> <input id="input_valor"><br>
+        <button onclick="avaliar()">Analisar situacao</button>
+
+    <div class="div" id="div_mensagem" ></div>
+</center>
+</body>
+
+</html>
+<script>
+    function avaliar() {
+        var quantidadeKG = Number(input_quantidade.value)
+        var valor = Number(input_valor.value)
+
+
+        var porcentagemtomate = (quantidadeKG * 0.4) 
+
+        var lucroObtido = quantidadeKG * valor
+
+        var Esperado = lucroObtido / 0.9;
+
+
+        div_mensagem.innerHTML = `<b style="color:black">Sua produção está em ${Math.round(porcentagemtomate)}% abaixo do esperado</b>
+            <br> você teve um proveito de R$${Math.round(lucroObtido)}
+            <br>A média esperada era de R$${Math.round(Esperado)} kg para ${Math.round(quantidadeKG)} KG de tomate transportados
+            
+            <br>Obtido foi R$ ${Math.round(Esperado - lucroObtido)} abaixo do esperado<br>
+
+            <p>Sem a nossa solução, durante o transporte cerca de ${Math.round(quantidadeKG * 0.4)} tomates serão danificados durante o trajeto.<br>
+        Com a nossa solução, seu transporte terá um <b> perderá apenas </b> ${Math.round(quantidadeKG * 0.35)} sendo ${Math.round(quantidadeKG - (quantidadeKG *0.35))} é o que você vai ter como total.</p>
+        
+        
+`
+    }
+
+</script>
